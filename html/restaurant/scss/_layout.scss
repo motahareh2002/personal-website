@@ -1,0 +1,186 @@
+.navbar{
+    position: relative;
+    z-index: 200;
+    &-navigation{
+        display: flex;
+        &-left{
+            width: 50vw;
+            height: 100vh;
+            background-color: $color-dark;
+            position: fixed;
+            left: -50vw;
+            transition: left .8s cubic-bezier(1,0,0,1);
+            .left-img{
+                width: 50%;
+                position: absolute;
+                box-shadow: 0 15px 60px rgba($color: $color-black, $alpha: .4);
+                opacity: .7;
+                border-radius: 10px;
+            }
+            .left-img-1{
+                top: 15%;
+                left: 15%;
+            }
+            .left-img-2{
+                top: 35%;
+                left: 25%;
+            }
+            .left-img-3{
+                top: 55%;
+                left: 35%;
+            }
+        }
+        &-right{
+            transition: right .8s cubic-bezier(1,0,0,1);
+            width: 50vw;
+            height: 100vh;
+            position: fixed;
+            right:  -50vw;;
+            background-color: #1f1d1d;
+            @include flex-layout
+        }
+        .nav-list{
+            &-item{
+                list-style: none;
+            }
+            &-link{
+                font-family: $font-sahel;
+                font-size: 20px;
+                @include textStyle ;
+                color: $color-secondary;
+                text-decoration: none;
+                display: block;
+                margin: 60px;
+                text-align: center;
+                transition: all .5s;
+                &:hover{
+                    color: $color-primary;
+                    letter-spacing: 4px;
+                }
+            }
+        }
+    }
+}
+
+.checkbox:checked ~ .navbar-navigation .navbar-navigation-left{
+    left: 0;
+}
+.checkbox:checked ~ .navbar-navigation .navbar-navigation-right{
+   right: 0;
+}
+.checkbox:checked ~ .hanburger-menu .menu{
+    transform: rotatez(90deg);
+}
+.checkbox:checked ~ .hanburger-menu .menu-line-1{
+    transform: rotatez(-40deg);
+}
+.checkbox:checked ~ .hanburger-menu .menu-line-2{
+    opacity: 0;
+}
+.checkbox:checked ~ .hanburger-menu .menu-line-3{
+    transform: rotatez(+40deg);
+}
+.header{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background: linear-gradient(rgba($color-black,0.8) , rgba($color-black,0.8)) , url(../images/bg.jpeg) center no-repeat;
+    background-size: cover;
+    .brand{
+        @include centring(15%);
+        color: white;
+        display: flex;
+        align-content: center;
+    }
+    &-banner{
+        @include centring(50%);
+        text-align: center;
+        // color: white;
+    }
+}
+.about-us{
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    &-left{
+        width: 40%;
+        img{
+            width: 100%;
+            opacity: .7;
+        }
+    }
+    &-right{
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: -12px 80px;
+        box-sizing: border-box;
+        .mani-heading{
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+        .sub-heading{
+            font-size: 40px;
+        }
+        .stars{
+            margin: 30px 0;
+            margin-bottom: 20px;
+        }
+        .star{
+            font-size: 15px;
+            color: $color-primary;
+            margin-left: 10px;
+        }
+        .discription{
+            font-family: $font-nastaliq;
+            font-size: 25px;
+            color: $color-secondary;
+            direction: rtl;
+            text-align: justify;
+            &::first-letter{
+                padding-right: 30px;
+            }
+        }
+    }
+}
+.gallery{
+    .cards-wrapper{
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+.footer{
+    padding: 70px 0;
+    @include flex-layout ;
+    flex-direction: column;
+    &-header{
+        display: flex;
+        align-items: center;
+        margin-bottom: 70px;
+    }
+    .social-media{
+        display: flex;
+        width: 300px;
+        justify-content: space-between;
+        margin-bottom: 70px;
+        &-item{
+            list-style: none;
+        }
+        &-link{
+            text-decoration: none;
+            font-size: 50px;
+            color: $color-secondary;
+            transition: color .7s;
+            &:hover{
+                color: $color-primary;
+            }
+        }
+    }
+    &-copyright-prograph{
+        font-family: $font-sahel;
+        color: $color-secondary;
+        font-size: 20px;
+        direction: rtl;
+    }
+}
